@@ -1,0 +1,415 @@
+/* ----------------------------------- */
+/* ----------------------------------- */
+/* -----        Général          ----- */
+/* ----------------------------------- */
+/* ----------------------------------- */
+
+html{
+    height: 100%;
+}
+
+body
+{
+    font-size: 12px;
+    font-family: Arial, "sans-serif";
+    position: relative;
+    height: 100%;
+    background-color: #f5f5f5;
+}
+
+a
+{
+    text-decoration: none;
+}
+
+*
+{
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+    
+    padding: 0;
+    margin: 0;
+}
+
+#wrap
+{
+    min-height: 100%;
+    position: relative;
+}
+
+/* ----------------------------------- */
+/* ----------------------------------- */
+/* -----         Header          ----- */
+/* ----------------------------------- */
+/* ----------------------------------- */
+
+header div
+{
+    text-align: center;
+    padding-bottom: 15px;
+}
+
+header div h1
+{   
+    text-shadow: 1px 1px 0.5px #000;
+}
+
+nav
+{
+    min-width: 100%;
+    position: relative;
+    top: 0;
+    z-index: 1;
+    background-color: white;
+}
+
+nav ul
+{
+    list-style: none;
+    min-height: 40px;
+    text-align: center;
+    min-width: 100%;
+    box-shadow: 1px 1px 5px grey;
+}
+
+nav a li
+{
+    /* on définit la transition pour les navigateurs */
+    -webkit-transition: all .3s; /*     Chrome/Safari */
+    -moz-transition: all .3s; /* Firefox (plus trop nécessaire) */
+    transition: all .3s; /* syntaxe officielle */
+
+    width: 100px;
+    font-weight: bold;
+    display: inline-block;
+}
+
+nav ul a
+{
+    color: grey;
+    min-height: 100%;
+    min-height: 40px;
+    line-height: 40px;
+}
+
+nav ul li:hover
+{
+    background-color: grey;
+    color: white;
+}
+
+#subtitle
+{
+    margin-top: 3px;
+}
+
+/*
+.red
+{
+   background-image:radial-gradient( #870704, #ec0100);
+}
+.orange
+{
+    background-image:radial-gradient( #f15900, #ff9f00);
+}
+.rose
+{
+ background-image:radial-gradient( #e70b55, #fb2682);
+}
+.blue
+{
+    background-image:radial-gradient( #1c6cb1, #2acaff);
+}
+.green
+{
+    background-image:radial-gradient( #3d7c23, #64cb55);
+}
+*/
+
+.green_title
+{
+    color: #abc737;
+    font-size: 3em;
+}
+
+
+/* ----------------------------------- */
+/* ----------------------------------- */
+/* -----        Section          ----- */
+/* ----------------------------------- */
+/* ----------------------------------- */
+
+section
+{
+    position: relative;
+    padding-bottom: 15px;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+
+/* ----------------------------------- */
+/* ----------------------------------- */
+/* -----        Article          ----- */
+/* ----------------------------------- */
+/* ----------------------------------- */
+
+.index_article
+{
+    overflow: hidden;
+    position: relative;
+    top: 0;
+    margin-bottom: 20px;
+    border: 2px solid #d0d0d0;
+    background-color: white;
+    border-radius: 3px;
+
+}
+
+.index_article p
+{
+    text-align: justify;
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-bottom: 25px;
+}
+
+.index_article_title
+{
+    color: #abc737;
+    margin-bottom: 5px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 1%;
+    text-align: center;
+    text-decoration: none;
+}
+/* orange ff9f00*/
+
+.index_article_title:hover
+{
+    color: grey;
+}
+
+.index_article_date
+{
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
+    padding: 5px;
+    color: #b7b7b7;
+    display: inline-block;
+    min-height: 25px;
+}
+
+.index_article_date_left
+{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.index_article_date_right
+{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.index_article_image_right
+{
+    float: right;
+    margin-left: 2%;
+}
+
+.index_article_image_left
+{
+    float: left;
+    margin-right: 2%;
+}
+
+.article_title
+{
+    color: #abc737;
+    margin-bottom: 5px;
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+    font-size: 3em;
+}
+
+.article_date
+{
+    display: inline-block;
+    color: grey;
+    font-weight: bold;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    
+}
+
+.article
+{
+    position: relative;
+    padding: 8px;
+    margin-bottom: 20px;
+    border: 2px solid #d0d0d0;
+    background-color: white;
+    border-radius: 3px;
+}
+
+.article h1, .article h2, .article h3
+{
+    padding-top: 5px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.article p
+{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* ----------------------------------- */
+/* ----------------------------------- */
+/* -----         Footer          ----- */
+/* ----------------------------------- */
+/* ----------------------------------- */
+
+footer
+{
+    font-size: 0.7em;
+    text-align: center;
+    color: white;
+    background-color: grey;
+    min-width: 100%;
+    height: 25px;
+    line-height: 25px;
+    position: absolute;
+    bottom: 0;
+    font-weight: bold;
+}
+
+////////////////////////////////////
+
+@charset "utf-8";
+/* CSS Document */
+
+* { margin:0; padding:0; }
+
+#conteneur { /*conteneur général du module*/
+	margin: auto;
+	padding-bottom:15px;
+	padding-top:10px;
+    max-width: 400px;
+	}
+	
+.user-wrapper {  /*pseudo et date du commentaire */
+	font-weight: normal;
+	color: #666;
+	background: #CCC;
+	margin-top: 10px;
+	padding: 2px 2px 2px 5px;
+	border-top: solid 1px #000000;
+	border-right: solid 1px #000000;
+	border-left: solid 1px #000000;
+	}
+
+.com-user-wrapper { /*commentaire affiché  */
+	line-height: 18px;
+	color: #000000;
+	padding:5px;
+	border-bottom: solid 1px #000000;
+	border-right: solid 1px #000000;
+	border-left: solid 1px #000000;
+	}
+	
+.post-pseudo-style { /*style du pseudo affiché  dans user-wrapper */
+	font-weight: bold;
+	color: #000000;
+	}
+	
+.title-post-wrapper { /* intitulé du formulaire de commentaire */
+	font-size: 1.5em;
+	font-weight: bold;
+	margin-bottom:10px;
+	}
+	
+.title-com-wrapper { /* intitulé des commentaires déjà postés */
+	font-size: 1.5em;
+	font-weight: bold;
+	margin-top: 50px;
+	}
+	
+.pseudo-box { /*champ input - pseudo du formulaire */
+	margin-bottom:10px;
+	padding: 3px;
+	border: solid 1px #000000;
+	}
+	
+.com-box { /*champ textarea - votre commentaire du formulaire */
+	border: solid 1px #000000;
+	padding: 3px;
+    width: 100%;
+	}
+	
+.pseudo-style { /*label du champ input*/
+	/* color: #FFF; */
+    }
+	
+.com-style { /*label du champ textarea*/
+	/* color: #FFF; */
+	}
+	
+.button-style { /* bouton du formulaire */
+	padding: 2px 15px 2px 15px;
+	margin-top:10px;
+    background-color: #abc737;
+    border: none;
+    color: white;
+	}
+
+.button-style:hover { /* bouton du formulaire */
+    background-color: grey;
+    color: white;
+	}
+/* MEDIA QUERIES */
+
+@media (max-width: 450px) {
+    nav ul li {
+        display: block;
+        margin: 0 auto;
+    }
+
+    section {
+        margin-left: 2%;
+        margin-right: 2%;
+    }
+
+    .green_title {
+        font-size: 1.5em;
+    }
+
+    .article_title
+    {
+        font-size: 2em;
+    }
+}
+
+@media (min-width: 450px) and (max-width: 600px) {
+    section {
+        margin-left: 2%;
+        margin-right: 2%;
+    }
+    
+    .green_title {
+        font-size: 2.3em;
+    }
+    
+    .article_title
+    {
+        font-size: 2.5em;
+    }
+}

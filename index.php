@@ -3,43 +3,50 @@
 
 <?php
 
-    use \MarkdownExtended\MarkdownExtended;
+$mysqli = mysqli_connect("localhost", "root", "Istiolorf3", "tls");
+$pair = 0;
 
-    $nbArticles = count(glob('articles/*.md'));
-    $pair = 0;
+if (mysqli_connect_errno($mysqli)) {
+    echo "Echec lors de la connexion à MySQL : " . mysqli_connect_error();
+}
 
-    for($i = $nbArticles ; $i > 0 && ($nbArticles - $i) < 5 ; $i--)
+if($res = $mysqli->query("SELECT * FROM tls_articles ORDER BY article_id DESC LIMIT 5"))
+{
+
+    while ($row = $res->fetch_assoc())
     {
-        $articleName = 'article_' . $i . '.md';
-
         echo '<div class="index_article">';
-        $content = MarkdownExtended::parseSource('articles/' . $articleName);
-        
-        $pos2 = strpos($content->getBody(), '<p>');
-        $pos = strpos($content->getBody(), '</p>');
-        $resume = substr($content->getBody(), $pos2, ($pos+3)-($pos2-1));
+        $image;
+        $date;
         
         if($pair%2)
-            echo '<img src="img/' . $content->getMetadata()['image'] . '" width="200" height="200" class="index_article_image_right"/>';
+        {
+            $image = "index_article_image_right";
+            $date = "index_article_date_left";
+        }
         else
-            echo '<img src="img/' . $content->getMetadata()['image'] . '" width="200" height="200" class="index_article_image_left"/>';
-        
-        echo '<a href="article.php?id=' . $i . '"><h1 class="index_article_title">' . $content->getTitle() . '</h1></a>';
-        
-        if(strlen($resume) < 500)
-            echo $resume;
-        else
-            echo substr($resume, 0, 500) . '...';
+        {
+            $image = "index_article_image_left";
+            $date = "index_article_date_right";
+        }
 
-        if($pair%2)
-            echo '<div class="index_article_date index_article_date_left">' . $content->getMetadata()['date'] . '</div>';
-        else
-            echo '<div class="index_article_date index_article_date_right">' . $content->getMetadata()['date'] . '</div>';
+        echo '<img src="img/' . $row['article_image'] . '" width="200" height="200" class="' . $image . '" />';
+        echo '<a href="article.php?n=' . $row['article_url_title'] . '"><h1 class="index_article_title">' . $row['article_title'] . '</h1></a>';
+
+        echo $row['article_resume'];
+            
+        echo '<div class="index_article_date ' . $date . '">' . $row['article_date'] . '</div>';
         
         echo '</div>';
-        
+
         $pair++;
     }
+
+    $res->free();
+}
+
+$mysqli->close();
+
 ?>
     
 

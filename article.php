@@ -1,28 +1,42 @@
 <?php include("header.php"); ?>
+
 <section>
-    <div class="article">
-    <?php
-        use \MarkdownExtended\MarkdownExtended;
 
-        $articleName = 'article_' . $_GET['id'] . '.md';
-        $content = MarkdownExtended::parseSource('articles/' . $articleName);
+  <div class="article">
 
-        echo '<h1 class="article_title">' . $content->getTitle() . '</h1>';
+      <?php
 
-        echo '<div class="article_date">' . $content->getMetadata()['date'] . '</div>';
+      $n = $_GET['n'];
 
-        if(file_exists('articles/' . $articleName))
-        {
-            $content = MarkdownExtended::parseSource('articles/' . $articleName);
-            echo $content->getBody(); 
-        }
-    ?>
+      $mysqli = mysqli_connect("localhost", "root", "Istiolorf3", "tls");
+ 
+      if (mysqli_connect_errno($mysqli)) {
+          echo "Echec lors de la connexion à MySQL : " . mysqli_connect_error();
+      }
 
-    <?php
-    include("module_commentaire.php");
-    ?>
-    
+      if($res = $mysqli->query("SELECT * FROM tls_articles WHERE tls_articles.article_url_title='" . $mysqli->real_escape_string($n) . "'"))
+      {
+          $row = $res->fetch_assoc();
+
+          echo '<h1 class="article_title">' . $row['article_title'] . '</h1>';
+
+          echo '<div class="article_date">' . $row['article_date'] . '</div>';
+
+          echo $row['article_content'];
+          
+          $res->free();
+      }
+
+      $mysqli->close();
+      
+      ?>
+
+      <?php
+        include("module_commentaire.php");
+      ?>
+        
     </div>
 
 </section>
+
 <?php include("footer.php"); ?>

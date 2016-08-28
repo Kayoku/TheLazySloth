@@ -4,7 +4,6 @@ Description: resume of article-3
 Author: The Lazy Cat
 Date: 25 Juillet 2016
 Image: 2743.jpg
-Tags: Youpi, truc
 Categories: Informatique, Ecologie
 Sources: https://bidule.org
 

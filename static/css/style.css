@@ -10,7 +10,7 @@ html{
 
 body
 {
-    font-size: 12px;
+    font-size: 14px;
     font-family: Arial, "sans-serif";
     position: relative;
     height: 100%;
@@ -50,11 +50,6 @@ header div
     padding-bottom: 15px;
 }
 
-header div h1
-{   
-    text-shadow: 1px 1px 0.5px #000;
-}
-
 nav
 {
     min-width: 100%;
@@ -67,10 +62,10 @@ nav
 nav ul
 {
     list-style: none;
-    min-height: 40px;
+    min-height: 30px;
     text-align: center;
     min-width: 100%;
-    box-shadow: 1px 1px 5px grey;
+    border-bottom: 2px solid grey;
 }
 
 nav a li
@@ -89,8 +84,8 @@ nav ul a
 {
     color: grey;
     min-height: 100%;
-    min-height: 40px;
-    line-height: 40px;
+    min-height: 30px;
+    line-height: 30px;
 }
 
 nav ul li:hover
@@ -99,9 +94,14 @@ nav ul li:hover
     color: white;
 }
 
-#subtitle
+#subtitle_site
 {
     margin-top: 3px;
+}
+
+#title_site
+{
+    text-shadow: 1px 1px 0.5px #000;
 }
 
 /*
@@ -144,8 +144,8 @@ section
 {
     position: relative;
     padding-bottom: 15px;
-    margin-left: 10%;
-    margin-right: 10%;
+    margin: auto;
+    max-width: 800px;
 }
 
 
@@ -160,6 +160,7 @@ section
     overflow: hidden;
     position: relative;
     top: 0;
+    margin-top: 10px;
     margin-bottom: 20px;
     border: 2px solid #d0d0d0;
     background-color: white;
@@ -257,6 +258,7 @@ section
 {
     position: relative;
     padding: 8px;
+    margin-top: 20px;
     margin-bottom: 20px;
     border: 2px solid #d0d0d0;
     background-color: white;
@@ -402,7 +404,7 @@ footer
     }
 }
 
-@media (min-width: 450px) and (max-width: 600px) {
+@media (min-width: 450px) and (max-width: 850px) {
     section {
         margin-left: 2%;
         margin-right: 2%;

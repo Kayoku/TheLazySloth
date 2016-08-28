@@ -239,14 +239,13 @@ section
     font-size: 3em;
 }
 
-.article_date
+.article_sub
 {
     display: inline-block;
     color: grey;
     font-weight: bold;
     padding-top: 5px;
-    padding-bottom: 5px;
-    
+    padding-bottom: 5px; 
 }
 
 .article

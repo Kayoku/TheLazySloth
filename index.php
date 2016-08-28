@@ -30,8 +30,8 @@ if($res = $mysqli->query("SELECT * FROM tls_articles ORDER BY article_id DESC LI
             $date = "index_article_date_right";
         }
 
-        echo '<img src="img/' . $row['article_image'] . '" width="200" height="200" class="' . $image . '" />';
-        echo '<a href="article.php?n=' . $row['article_url_title'] . '"><h1 class="index_article_title">' . $row['article_title'] . '</h1></a>';
+        echo '<img src="/static/img/' . $row['article_image'] . '" width="200" height="200" class="' . $image . '" />';
+        echo '<a href="/article/' . $row['article_url_title'] . '"><h1 class="index_article_title">' . $row['article_title'] . '</h1></a>';
 
         echo $row['article_resume'];
             

@@ -36,6 +36,13 @@ comment_article_id INT(11) NOT NULL,
 CONSTRAINT fk_article_comment FOREIGN KEY (comment_article_id) REFERENCES tls_articles (article_id)
 );
 
+CREATE TABLE tls_rss (
+rss_id INT(11) AUTO_INCREMENT PRIMARY KEY,
+rss_article_id INT(11) NOT NULL,
+rss_guid TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+CONSTRAINT fk_rss_article FOREIGN KEY (rss_article_id) REFERENCES tls_articles (article_id)
+);
+
 INSERT INTO tls_categories(category_name) VALUES ('Informatique');
 INSERT INTO tls_categories(category_name) VALUES ('Ecologie');
 INSERT INTO tls_categories(category_name) VALUES ('Société');

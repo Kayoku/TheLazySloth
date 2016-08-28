@@ -1,6 +1,8 @@
 <?php
 
 require_once '../markdown-extended-master/src/bootstrap.php';
+//On va chercher le fichier php qui contient le code pour mettre à jour le flux RSS
+include_once("../update_rss.php");
 
 if ($argc != 2)
 {
@@ -78,12 +80,26 @@ foreach($categories as $cat)
     $categories_prepare->execute();
 
     $categories_prepare->bind_result($id);
- 
+    
     while($categories_prepare->fetch())
         $tab_cat[] = $id;
 }
 
 foreach($tab_cat as $id)
+{
     $mysqli->query("INSERT INTO tls_article_category(ac_article_id, ac_category_id) VALUES(" . $id_article . ", " . $id . ")");
+}
+
+// Insertion du rss
+
+// Définit le fuseau horaire par défaut à utiliser. Disponible depuis PHP 5.1
+date_default_timezone_set('Europe/Paris');
+
+$date_rfc = date("Y-m-d H:i:s");
+
+$mysqli->query("INSERT INTO tls_rss(rss_article_id) VALUES(" . $id_article . ")");
+
+//On appelle la fonction de mise à jour du fichier
+update_fluxRSS();
 
 ?>

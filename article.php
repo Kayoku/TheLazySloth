@@ -21,10 +21,20 @@
           echo '<h1 class="article_title">' . $row['article_title'] . '</h1>';
 
           
-          echo '<div class="article_sub">' . $row['article_date'] . ' / Tag(s) : ' . $row['article_tag'] . ' / Catégorie(s) : ';
+          echo '<div class="article_sub">' . $row['article_date'] . '<br/>';
+          echo 'Tag(s) : ' . $row['article_tag'] . '<br/>';
+          echo 'Catégorie(s) : ';
 
           $categories_query = "SELECT category_name FROM tls_categories JOIN tls_article_category JOIN tls_articles WHERE article_id = ac_article_id AND category_id = ac_category_id AND article_id = " . $row['article_id'];
-          // TO CONTINUESS
+
+          if($res_cat = $mysqli->query($categories_query))
+          {
+              while($row_cat = $res_cat->fetch_assoc())
+                  echo ' ' . $row_cat['category_name'];
+          }
+
+          $res_cat->free();
+          
           echo '</div>';
 
           echo $row['article_content'];

@@ -17,13 +17,13 @@
  }
 
  //Extrait le nom de la page et l'utilise pour le nom du fichier de sauvegarde en ".txt"
- $path = 'commentaries/article_' . $_GET['id'] . '.txt';
+ $path = 'commentaries/article_' . $_GET['n'] . '.txt';
 
  //Affichage du formulaire
  echo '
  <div id="conteneur">
   <div class="title-post-wrapper article_title">Laisser un commentaire</div>
- <form enctype="multipart/form-data" name="comment_form" action="article.php?id=' . $_GET['id'] . '" method="POST"> 
+ <form enctype="multipart/form-data" name="comment_form" action="article.php?n=' . $_GET['n'] . '" method="POST"> 
  <label class="pseudo-style" for="pseudo-box">Pseudo : </label><br />
     	    <input type="text" name="pseudo" class="pseudo-box" placeholder="Entrez votre pseudo"><br />
  <label class="com-style">Votre commentaire :</label><br />

@@ -5,16 +5,24 @@
 
 $mysqli = mysqli_connect("localhost", "root", "Istiolorf3", "tls");
 $pair = 0;
+$old = 0;
+$not_old = false;
+
+if(isset($_GET['o']))
+    $old = $_GET['o'];
 
 if (mysqli_connect_errno($mysqli)) {
     echo "Echec lors de la connexion à MySQL : " . mysqli_connect_error();
 }
 
-if($res = $mysqli->query("SELECT * FROM tls_articles ORDER BY article_id DESC LIMIT 5"))
+if($res = $mysqli->query("SELECT * FROM tls_articles ORDER BY article_id DESC LIMIT " . $old * 5 . ", 5"))
 {
 
     while ($row = $res->fetch_assoc())
     {
+        if($row['article_id'] == 1)
+            $not_old = true;
+
         echo '<div class="index_article">';
         $image;
         $date;
@@ -47,8 +55,10 @@ if($res = $mysqli->query("SELECT * FROM tls_articles ORDER BY article_id DESC LI
 
 $mysqli->close();
 
+if(!$not_old)
+    echo '<a href="/old/' . ($old+1) . '"><div class="index_article_old">Les anciens articles</div></a>';
+
 ?>
-    
 
 </section>   
 <?php include("footer.php"); ?>

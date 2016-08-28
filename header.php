@@ -12,10 +12,10 @@
         <header>
             <nav>
                 <ul>
-                    <a href="/index.php"><li>Articles</li></a>
-                    <a href="/projets.php"><li>Projets</li></a>
-                    <a href="/about.php"><li>À propos</li></a>
-                    <a href="/contact.php"><li>Contact</li></a>
+                    <a href="/index"><li>Articles</li></a>
+                    <a href="/project"><li>Projets</li></a>
+                    <a href="/about"><li>À propos</li></a>
+                    <a href="/contact"><li>Contact</li></a>
                 </ul>
             </nav>
             <div>

@@ -1,5 +1,5 @@
 Title: The Begginers's Guide
-Url-title: the-beginner-guide
+Url-title: article-5
 Author: The Lazy Cat
 Date: 25 Juillet 2016
 Image: 2743.jpg

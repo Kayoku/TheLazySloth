@@ -229,6 +229,11 @@ section
     margin-right: 2%;
 }
 
+.index_article_old
+{
+    margin-bottom: 30px;
+}
+
 .article_title
 {
     color: #abc737;
@@ -242,20 +247,10 @@ section
 .article_sub
 {
     display: inline-block;
-    color: grey;
+    color: #BDBDBD;
     font-weight: bold;
     padding-top: 5px;
     padding-bottom: 5px; 
-}
-
-.tag
-{
-    display: inline-block;
-    background-color: #abc737;
-    color: white;
-    padding: 3px;
-    margin-right: 2px;
-    margin-left: 2px;
 }
 
 .article

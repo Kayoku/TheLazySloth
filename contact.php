@@ -1,4 +1,10 @@
-<?php include("header.php"); ?>    
+<?php include("header-1.php"); ?>
+
+<meta name="description" content="Envie de me contacter directement ? De critiquer un article ? De boire une bière avec moi ? C'est ici que c'est tout devient possible.">
+<title>The Lazy Sloth - Contact</title>
+
+<?php include("header-2.php"); ?>
+
 <section>
 
 <form id="contact" method="post" action="contact.php">

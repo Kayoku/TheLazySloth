@@ -5,10 +5,10 @@ CREATE TABLE tls_articles (
 article_id INT(11) AUTO_INCREMENT PRIMARY KEY,
 article_title VARCHAR(150) NOT NULL,
 article_url_title VARCHAR(40) UNIQUE NOT NULL,
+article_desc VARCHAR(255) NOT NULL,
 article_author VARCHAR(40) NOT NULL,
 article_date VARCHAR(20) NOT NULL,
 article_image VARCHAR(50) NOT NULL,
-article_tag VARCHAR(255) NOT NULL,
 article_resume VARCHAR(500) NOT NULL,
 article_content MEDIUMTEXT NOT NULL,
 article_sources VARCHAR(500) NOT NULL

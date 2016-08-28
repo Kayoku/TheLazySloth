@@ -1,4 +1,10 @@
-<?php include("header.php"); ?>    
+<?php include("header-1.php"); ?>
+
+<meta name="description" content="Blog pour les feignants avec pleins d'articles super trop cool vous permettant d'apprendre plein de chose. (enfin, j'espère). Parce que le pouvoir, c'est le savoir !">
+<title>The Lazy Sloth - Accueil</title>
+
+<?php include("header-2.php"); ?>
+
 <section>
 
 <?php
@@ -17,7 +23,9 @@ if (mysqli_connect_errno($mysqli)) {
 
 if($res = $mysqli->query("SELECT * FROM tls_articles ORDER BY article_id DESC LIMIT " . $old * 5 . ", 5"))
 {
-
+    if($res->num_rows == 0)
+        $not_old = true;
+    
     while ($row = $res->fetch_assoc())
     {
         if($row['article_id'] == 1)
@@ -39,7 +47,7 @@ if($res = $mysqli->query("SELECT * FROM tls_articles ORDER BY article_id DESC LI
         }
 
         echo '<img src="/static/img/' . $row['article_image'] . '" width="200" height="200" class="' . $image . '" />';
-        echo '<a href="/article/' . $row['article_url_title'] . '"><h1 class="index_article_title">' . $row['article_title'] . '</h1></a>';
+        echo '<a href="/article/' . $row['article_url_title'] . '"><h2 class="index_article_title">' . $row['article_title'] . '</h1></a>';
 
         echo $row['article_resume'];
             

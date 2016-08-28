@@ -26,10 +26,10 @@ $file_parsed = MarkdownExtended::parseSource($file_name);
 
 $article_title = $file_parsed->getTitle();
 $article_url_title = $file_parsed->getMetadata()['url-title'];
+$article_desc = $file_parsed->getMetadata()['description'];
 $article_author = $file_parsed->getMetadata()['author'];
 $article_date = $file_parsed->getMetadata()['date'];
 $article_image = $file_parsed->getMetadata()['image'];
-$article_tag = $file_parsed->getMetadata()['tags'];
 $article_sources = $file_parsed->getMetadata()['sources'];
 $article_body = $file_parsed->getBody();
 
@@ -41,13 +41,13 @@ $article_resume = substr($article_resume, 0, 500);
 if(strpos($article_resume, "</p>") === false)
     $article_resume = substr_replace($article_resume, "</p>", -4);
 
-$article_insert = "INSERT INTO tls_articles(article_title, article_url_title, article_author, article_date, article_image, article_tag, article_resume, article_content, article_sources) VALUES ('" .
+$article_insert = "INSERT INTO tls_articles(article_title, article_url_title, article_desc, article_author, article_date, article_image, article_resume, article_content, article_sources) VALUES ('" .
                   $mysqli->real_escape_string($article_title) . "', '" .
                   $mysqli->real_escape_string($article_url_title) . "', '" .
+                  $mysqli->real_escape_string($article_desc) . "', '" .
                   $mysqli->real_escape_string($article_author) . "', '" .
                   $mysqli->real_escape_string($article_date) . "', '" .
                   $mysqli->real_escape_string($article_image) . "', '" .
-                  $mysqli->real_escape_string($article_tag) . "', '" .
                   $mysqli->real_escape_string($article_resume) . "', '" .
                   $mysqli->real_escape_string($article_body) . "', '" .
                   $mysqli->real_escape_string($article_sources) . "')";

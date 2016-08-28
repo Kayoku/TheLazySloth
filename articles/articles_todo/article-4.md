@@ -1,5 +1,6 @@
 Title: The Begginers's Guide
 Url-title: article-4.md
+Description: resume of article-4
 Author: The Lazy Cat
 Date: 25 Juillet 2016
 Image: 2743.jpg

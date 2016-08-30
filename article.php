@@ -51,7 +51,7 @@ include("header-2.php");
       echo '<div class="article_source">';
       echo $row['article_sources'];
       echo '</div>';
-      
+
       include("module_commentaire.php");
 
       $mysqli->close();

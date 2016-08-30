@@ -6,8 +6,15 @@
 <?php include("header-2.php"); ?>
 
 <section>
+  <div id="about">
+  <p>
+    Salutation !
+  </p>
+  <p>
+    Voilà la page sur laquelle vous pourrez découvrir qui je suis, le pourquoi du comment de ce blog et tous les secrets qui l'entoure ! Enfin, quand j'en aurais envie... Pour l'instant j'ai... La flemme... zZzZzZZzzzZ...
+  </p>
 
-    
+  </div>
     
 
 </section>   

@@ -61,6 +61,8 @@ if($badass_res = $mysqli->query("SELECT COUNT(*) FROM tls_badass"))
       <p><?php echo '"' . $sentence . '"'; ?></p>
       <p class="side_author"><?php echo $author; ?></p>
     </div>
+    <hr />
+    
   </div>
   
 <?php

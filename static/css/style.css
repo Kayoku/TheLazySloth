@@ -547,6 +547,23 @@ footer
     padding: 5px;
 }
 
+#contact .contact_err
+{
+    background-color: #ffb4ae;
+    text-align: center;
+    padding: 10px;
+    border: 2px solid #d0d0d0;
+    font-size: 0.8em;
+}
+
+#contact .contact_ok
+{
+    background-color: #acff96;
+    text-align: center;
+    padding: 10px;
+    border: 2px solid #d0d0d0;
+    font-size: 0.8em;
+}
 
 ////////////////////////////////////
 

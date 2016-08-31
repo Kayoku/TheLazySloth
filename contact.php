@@ -31,6 +31,8 @@
   // Message d'erreur du formulaire
   $message_formulaire_invalide = "Vérifiez que tous les champs soient bien remplis et que l'email soit sans erreur.";
 
+  $message_final = "";
+  
   /*
    ********************************************************************************************
      FIN DE LA CONFIGURATION
@@ -69,7 +71,7 @@
 
   // On va vérifier les variables et l'email ...
   $email = (IsEmail($email)) ? $email : ''; // soit l'email est vide si erroné, soit il vaut l'email entré
-  $err_formulaire = false; // sert pour remplir le formulaire en cas d'erreur si besoin
+  $err = false; // sert pour remplir le formulaire en cas d'erreur si besoin
 
   if (isset($_POST['envoi']))
   {
@@ -77,13 +79,13 @@
       {
     		  // les 4 variables sont remplies, on génère puis envoie le mail
     		  $headers  = 'From:'.$nom.' <'.$email.'>' . "\r\n";
-    		  //$headers .= 'Reply-To: '.$email. "\r\n" ;
-    		  //$headers .= 'X-Mailer:PHP/'.phpversion();
+    		  $headers .= 'Reply-To: '.$email. "\r\n" ;
+    		  $headers .= 'X-Mailer:PHP/'.phpversion();
           
     		  // envoyer une copie au visiteur ?
     		  if ($copie == 'oui')
     		  {
-    			    $cible = $destinataire.';'.$email;
+    			    $cible = $destinataire.','.$email;
     		  }
     		  else
     		  {
@@ -102,7 +104,7 @@
           
     		  // Envoi du mail
     		  $num_emails = 0;
-    		  $tmp = explode(';', $cible);
+    		  $tmp = explode(',', $cible);
     		  foreach($tmp as $email_destinataire)
     		  {
     			    if (mail($email_destinataire, $objet, $message, $headers))
@@ -110,29 +112,41 @@
     		  }
           
     		  if ((($copie == 'oui') && ($num_emails == 2)) || (($copie == 'non') && ($num_emails == 1)))
-    		  {
-    			    echo '<p>'.$message_envoye.'</p>';
-    		  }
+    			    $message_final = $message_envoye;
     		  else
-    		  {
-    			    echo '<p>'.$message_non_envoye.'</p>';
-    		  };
+          {
+              $err = true;
+    			    $message_final = $message_non_envoye;
+          }
       }
       else
       {
     		  // une des 3 variables (ou plus) est vide ...
-    		  echo '<p>'.$message_formulaire_invalide.'</p>';
-    		  $err_formulaire = true;
+    		  $message_final = $message_formulaire_invalide;
+          $err = true;
       };
   }; // fin du if (!isset($_POST['envoi']))
 
-  if (($err_formulaire) || (!isset($_POST['envoi'])))
-  {
 ?>
     <form id="contact" method="post" action="contact">
       <h2>
         Contact du paresseux
       </h2>
+<?php
+
+echo '<p class="';
+if($err)
+{
+    echo 'contact_err';
+}
+else
+{
+    echo 'contact_ok';
+}
+echo '">';
+echo $message_final;
+echo '</p>';
+?>
       <p id="precontact">
         Vous pouvez me contacter avec le formulaire ci-dessous en précisant bien votre email, ça me permet d'avoir la possibilité de vous répondre (Eh oui, c'est pas bête !). Vous pouvez aussi me contacter directement à l'adresse suivante : contact(at)thelazysloth.fr
       </p>
@@ -141,13 +155,8 @@
       <p><label for="objet">Objet</label><br /><input type="text" id="objet" name="objet" tabindex="2" /></p>
       <p><label for="message">Message</label><br /><textarea id="message" name="message" tabindex="4" cols="50" rows="8"></textarea></p>
       
-      <div style="text-align:center;"><input type="submit" value=" Envoyer " /></div>
+      <div style="text-align:center;"><input type="submit" name="envoi" value="Envoyer" /></div>
     </form> 
-
-
-  <?php
-  };
-  ?>
 
 </section>   
 <?php include("footer.php"); ?>

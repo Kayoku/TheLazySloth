@@ -11,7 +11,7 @@ html{
 body
 {
     font-size: 14px;
-    font-family: Calibri, "sans-serif";
+    font-family: "sans-serif";
     position: relative;
     height: 100%;
     background-color: #ececec;
@@ -19,7 +19,7 @@ body
 
 h1, h2, h3, h4, h5, h6, #title_site, #subtitle_site
 {
-    font-family: Georgia, "Times New Roman";
+    font-family: "Times New Roman";
 }
 
 a
@@ -243,7 +243,7 @@ section
     margin-left: 2%;
     width: 200px;
     height: 200px;
-    background-size: 200px 200px;
+    background-size: 200px 200px!important;
 }
 
 .index_article_image_left
@@ -252,7 +252,7 @@ section
     margin-right: 2%;
     width: 200px;
     height: 200px;
-    background-size: 200px 200px;
+    background-size: 200px 200px!important;
 }
 
 .index_article_image_right img
@@ -324,7 +324,6 @@ section
 
 .article blockquote
 {
-
   background: #f9f9f9;
   border-left: 10px solid #ccc;
   margin: 1.5em 10px;
@@ -466,6 +465,22 @@ footer
 
 .side_categories a:hover {
     color: #f15900;
+}
+
+.side_badass {
+  text-align: center;
+  background: #ececec;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+  border: 2px solid #d0d0d0;
+  quotes: "\201C""\201D""\2018""\2019";
+  font-style: italic;
+  font-size: 0.8em;
+}
+
+.side_author {
+    text-align: right;
+    font-size: 0.7em;
 }
 
 /* about */

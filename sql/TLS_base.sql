@@ -43,6 +43,16 @@ rss_guid TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 CONSTRAINT fk_rss_article FOREIGN KEY (rss_article_id) REFERENCES tls_articles (article_id)
 );
 
+CREATE TABLE tls_badass (
+badass_id INT(11) AUTO_INCREMENT PRIMARY KEY,
+badass_sentence TEXT NOT NULL,
+badass_author VARCHAR(50) NOT NULL
+);
+
 INSERT INTO tls_categories(category_name) VALUES ('Informatique');
 INSERT INTO tls_categories(category_name) VALUES ('Ecologie');
 INSERT INTO tls_categories(category_name) VALUES ('Société');
+
+INSERT INTO tls_badass(badass_sentence, badass_author) VALUES ('Je suis une phrase badass', 'Le plus grand');
+INSERT INTO tls_badass(badass_sentence, badass_author) VALUES ('Je suis une phrase badass2', 'Le plus fort');
+INSERT INTO tls_badass(badass_sentence, badass_author) VALUES ('Je suis une phrase badass3', 'Le plus beau');
